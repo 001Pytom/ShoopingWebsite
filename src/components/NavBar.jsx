@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../context/CartProvider";
 
 function NavBar() {
+  const { openCart, cartItems } = useCart();
+
   return (
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -17,6 +20,14 @@ function NavBar() {
             >
               Get started
             </Link>
+            <button onClick={openCart} className="relative">
+              <span className="text-2xl">🛒</span>
+              {cartItems.length > 0 && (
+                <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center text-xs">
+                  {cartItems.length}
+                </span>
+              )}
+            </button>
           </div>
           <div
             className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
@@ -49,7 +60,7 @@ function NavBar() {
               </li>
               <li>
                 <NavLink
-                  to="/contact"
+                  to="/cart"
                   className={({ isActive }) =>
                     `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 ${
                       isActive ? "text-[#60101F]" : "text-gray-700"
@@ -64,7 +75,7 @@ function NavBar() {
                   to="/shop"
                   className={({ isActive }) =>
                     `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 ${
-                      isActive ? "text-[#60101F]" : "text-gray-700"
+                      isActive ? "text-[rgb(96,16,31)]" : "text-gray-700"
                     } lg:hover:bg-transparent lg:border-0 hover:text-[#60101F] lg:p-0`
                   }
                 >

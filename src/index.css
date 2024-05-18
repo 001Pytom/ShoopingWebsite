@@ -12,4 +12,21 @@
   .writeMode {
     writing-mode: vertical-lr;
   }
+  .about {
+    background-image: linear-gradient(
+        rgba(36, 42, 46, 0.2),
+        rgba(36, 42, 46, 0.8)
+      ),
+      url("../src/assets/homecart.avif");
+  }
+  .products .product {
+    transition: scale 350ms ease, opacity 350ms linear;
+  }
+  .products:has(.product:hover) .product:not(:hover) {
+    scale: 0.8;
+    opacity: 0.7;
+  }
+  img {
+    max-width: 100%;
+  }
 }
