@@ -1,3 +1,9 @@
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 const ContactUs = () => {
@@ -19,38 +25,57 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to server
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Message:", message);
-    // Clear form fields after submission
     setName("");
     setEmail("");
     setMessage("");
   };
 
   return (
-    <div className="container flex items-center justify-between">
-      <div className="container w-[80vw]   mx-auto flex   items-center ">
-        <div className="container mx-auto py-8">
+    <div className="container mx-auto p-10">
+      <div className="bg-white w-[80vw] mx-auto  rounded-lg shadow-lg p-8 md:flex md:space-x-10 items-center">
+        <div className="md:w-1/2 mb-8 md:mb-0">
           <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-          <p className="mb-4">
-            128 Melbourne Australia
-            <br />
-            2nd Floor, New Town Australia.
-          </p>
+          <p className="mb-4">Lagos LA Nigeria.</p>
           <p className="mb-4">Phone: +2348145690268</p>
           <p className="mb-4">Email: mohammedfaatihat@gmail.com</p>
           <div className="flex items-center mb-4">
             <p>Follow us: 🔻</p>
           </div>
-          <div className="flex space-x-4"></div>
+          <div className="flex space-x-4 text-[#60101F]">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-teehat"
+            >
+              <FontAwesomeIcon icon={faTwitter} className="text-2xl" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-teehat"
+            >
+              <FontAwesomeIcon icon={faFacebook} className="text-2xl" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-teehat"
+            >
+              <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
+            </a>
+          </div>
         </div>
 
-        <div className="container mx-auto py-8">
-          <h1 className="text-3xl font-bold mb-4">Drop Us a Message</h1>
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-            <div className="mb-4">
+        <div className="md:w-1/2">
+          <h1 className="text-3xl font-bold">Drop Us a Message</h1>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
               <label
                 htmlFor="name"
                 className="block text-sm font-semibold mb-2"
@@ -62,11 +87,11 @@ const ContactUs = () => {
                 id="name"
                 value={name}
                 onChange={handleNameChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none "
                 required
               />
             </div>
-            <div className="mb-4">
+            <div>
               <label
                 htmlFor="email"
                 className="block text-sm font-semibold mb-2"
@@ -78,11 +103,11 @@ const ContactUs = () => {
                 id="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none"
                 required
               />
             </div>
-            <div className="mb-6">
+            <div>
               <label
                 htmlFor="message"
                 className="block text-sm font-semibold mb-2"
@@ -93,14 +118,14 @@ const ContactUs = () => {
                 id="message"
                 value={message}
                 onChange={handleMessageChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                rows="5"
+                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none "
+                rows="3"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded focus:outline-none focus:bg-blue-600"
+              className="w-full  border   text-black font-semibold px-4 py-2 rounded   "
             >
               Submit
             </button>

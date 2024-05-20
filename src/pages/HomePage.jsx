@@ -17,7 +17,7 @@ function HomePage() {
   };
   return (
     <div
-      className=" min-h-screen w-screen bg-center bg-cover  bg-no-repeat duration-500 group "
+      className=" min-h-screen  bg-center bg-cover  bg-no-repeat duration-500 group "
       style={{ backgroundImage: `url(${slides[currentIndex]})` }}
     >
       <div className="container w-[80vw] mx-auto  flex">

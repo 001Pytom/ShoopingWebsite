@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartProvider";
+import { GiShoppingCart } from "react-icons/gi";
 
 function NavBar() {
   const { openCart, cartItems } = useCart();
@@ -13,7 +14,7 @@ function NavBar() {
               <span className="text-[#60101F]">TEE</span>HAT
             </h1>
           </Link>
-          <div className="flex items-center lg:order-2">
+          <div className="flex items-center lg:order-2 gap-4">
             <Link
               to="#"
               className="text-white bg-[#1D1F20] hover:bg-[#60101F] focus:ring-2 focus:ring-[#2d3031] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
@@ -21,9 +22,11 @@ function NavBar() {
               Get started
             </Link>
             <button onClick={openCart} className="relative">
-              <span className="text-2xl">🛒</span>
+              <span className="text-3xl">
+                <GiShoppingCart />
+              </span>
               {cartItems.length > 0 && (
-                <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center text-xs">
+                <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 flex justify-center items-center text-[10px] ">
                   {cartItems.length}
                 </span>
               )}
@@ -60,7 +63,7 @@ function NavBar() {
               </li>
               <li>
                 <NavLink
-                  to="/cart"
+                  to="/contact"
                   className={({ isActive }) =>
                     `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 ${
                       isActive ? "text-[#60101F]" : "text-gray-700"

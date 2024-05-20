@@ -28,7 +28,7 @@ function CartModal() {
   if (!isCartOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+    <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex  justify-center items-center ">
       <div
         ref={modalRef}
         className="bg-white p-6 rounded shadow-lg relative w-11/12 max-w-lg"
@@ -46,12 +46,12 @@ function CartModal() {
               key={item.id}
               className="mb-4 flex justify-between items-center"
             >
-              <div className="flex items-center">
-                <div className="h-20 w-20">
+              <div className="flex items-center ">
+                <div className="h-20 w-20 hidden md:block ">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-contain "
                   />
                 </div>
                 <div className="ml-4 ">
@@ -72,7 +72,7 @@ function CartModal() {
             </li>
           ))}
         </ul>
-        <div className="mt-6 text-right">
+        <div className="mt-2 text-right">
           <strong>
             Subtotal: $
             {cartItems

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 function Product({ product }) {
   const { image, title, price, id } = product;
+
   return (
     <div className="product bg-white shadow-md rounded  max-w-xs  flex flex-col items-center text-center">
       <div className=" w-60 h-60 p-4">

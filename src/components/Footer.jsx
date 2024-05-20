@@ -25,7 +25,7 @@ function Footer() {
           <input
             type="text"
             placeholder="Enter your email..."
-            className="w-full py-2 px-4 rounded-lg border  text-[#60101F] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#60101F] focus:border-transparent"
+            className="w-full py-2 px-4 rounded-lg border-2  text-[#60101F] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#60101F] focus:border-transparent"
           />
         </div>
         {/* Social icons */}
