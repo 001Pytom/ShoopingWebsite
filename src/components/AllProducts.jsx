@@ -7,7 +7,7 @@ function AllProducts() {
 
   if (isLoading) return <Spinner />;
   return (
-    <div className="container products mx-auto flex flex-wrap justify-items-center items-center justify-center gap-10 flex-1 relative bg-gray-50     ">
+    <div className="container products mx-auto flex flex-wrap justify-items-center items-center justify-center gap-10 flex-1 relative bg-gray-50">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}

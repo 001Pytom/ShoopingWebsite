@@ -7,35 +7,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 const ContactUs = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleMessageChange = (e) => {
-    setMessage(e.target.value);
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
-    setName("");
-    setEmail("");
-    setMessage("");
+    console.log("Form Data:", formData);
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <div className="container mx-auto p-10">
-      <div className="bg-white w-[80vw] mx-auto  rounded-lg shadow-lg p-8 md:flex md:space-x-10 items-center">
+      <div className="bg-white w-[80vw] mx-auto rounded-lg shadow-lg p-8 md:flex md:space-x-10 items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
           <p className="mb-4">Lagos LA Nigeria.</p>
@@ -75,57 +69,32 @@ const ContactUs = () => {
         <div className="md:w-1/2">
           <h1 className="text-3xl font-bold">Drop Us a Message</h1>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-semibold mb-2"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={handleNameChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none "
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-semibold mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={handleEmailChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-semibold mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                value={message}
-                onChange={handleMessageChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none "
-                rows="3"
-                required
-              />
-            </div>
+            <FormInput
+              label="Name"
+              id="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <FormInput
+              label="Email"
+              id="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <FormTextArea
+              label="Message"
+              id="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
             <button
               type="submit"
-              className="w-full  border   text-black font-semibold px-4 py-2 rounded   "
+              className="w-full bg-[#60101F] text-white font-semibold px-4 py-2 rounded hover:bg-red-700 focus:outline-none"
             >
               Submit
             </button>
@@ -135,5 +104,37 @@ const ContactUs = () => {
     </div>
   );
 };
+
+const FormInput = ({ label, id, type, value, onChange, required }) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-semibold mb-2">
+      {label}
+    </label>
+    <input
+      type={type}
+      id={id}
+      value={value}
+      onChange={onChange}
+      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-[#60101F] focus:border-[#60101F]"
+      required={required}
+    />
+  </div>
+);
+
+const FormTextArea = ({ label, id, value, onChange, required }) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-semibold mb-2">
+      {label}
+    </label>
+    <textarea
+      id={id}
+      value={value}
+      onChange={onChange}
+      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-[#60101F] focus:border-[#60101F]"
+      rows="3"
+      required={required}
+    />
+  </div>
+);
 
 export default ContactUs;

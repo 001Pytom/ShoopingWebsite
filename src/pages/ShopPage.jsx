@@ -7,7 +7,7 @@ function ShopPage() {
 
   if (error) return error;
   return (
-    <div className=" container mx-auto p-10 flex relative gap-6">
+    <div className="container mx-auto p-10 flex relative gap-6">
       <Categories />
       <AllProducts />
     </div>

@@ -5,7 +5,7 @@ function Product({ product }) {
 
   return (
     <div className="product bg-white shadow-md rounded  max-w-xs  flex flex-col items-center text-center">
-      <div className=" w-60 h-60 p-4">
+      <div className=" w-56 h-56 p-4">
         <img src={image} className="h-full w-full object-contain" />
       </div>
       <div className="p-4 flex flex-col  gap-1 rounded">
