@@ -20,7 +20,7 @@ function Footer() {
             © {currentYear} design and developed by faatihat.
           </p>
         </div>
-        <div className="  lg:w-1/2 text-center flex flex-col gap-3">
+        <div className="  lg:w-1/2 md:text-center flex flex-col gap-3">
           <p>Subscribe to our Newsletter... </p>
           <input
             type="text"
