@@ -1,11 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import Contact from "./pages/Contact";
-import ShopPage from "./pages/ShopPage";
 import ProductDetail from "./components/ProductDetail";
 import CartModal from "./components/CartModal";
 import AppLayout from "./components/AppLayout";
+import { Suspense, lazy } from "react";
+import SpinnerFullPage from "./components/SpinnerFullPage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const Contact = lazy(() => import("./pages/Contact"));
+const ShopPage = lazy(() => import("./pages/ShopPage"));
 
 const router = createBrowserRouter([
   {
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<SpinnerFullPage />}>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }
 
 export default App;
