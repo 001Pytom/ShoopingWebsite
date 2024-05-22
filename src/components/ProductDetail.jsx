@@ -47,13 +47,13 @@ function ProductDetail() {
           <p className="mb-4">{description}</p>
           <div className="inline-flex">
             <button
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+              className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-l"
               onClick={() => navigate(-1)}
             >
               Prev
             </button>
             <button
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold px-2 md:py-2 md:px-4 rounded-r"
+              className="bg-black hover:bg-gray-700  text-white font-bold px-2 md:py-2 md:px-4 rounded-r"
               onClick={() => addToCart(currentProduct)}
             >
               Add To Cart

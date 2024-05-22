@@ -34,7 +34,7 @@ function CartModal() {
         className="bg-white p-6 rounded-lg shadow-lg relative w-11/12 max-w-lg transform transition-transform duration-300 scale-100"
       >
         <button
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700  text-2xl"
           onClick={closeCart}
         >
           &times;
@@ -54,8 +54,10 @@ function CartModal() {
                     className="h-full w-full object-contain"
                   />
                 </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-lg">{item.title}</div>
+                <div className="md:ml-4">
+                  <div className="font-semibold text-sm md:text-lg">
+                    {item.title}
+                  </div>
                   <div className="text-gray-600">
                     ${item.price.toFixed(2)} x {item.quantity}
                   </div>
@@ -67,7 +69,7 @@ function CartModal() {
               <div className="flex items-center space-x-2">
                 <Quantity item={item} />
                 <button
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 hover:text-red-700  "
                   onClick={() => removeFromCart(item.id)}
                 >
                   &times;

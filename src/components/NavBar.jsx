@@ -1,9 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartProvider";
 import { GiShoppingCart } from "react-icons/gi";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function NavBar() {
   const { openCart, cartItems } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header className="shadow sticky z-50 top-0">
@@ -31,10 +38,15 @@ function NavBar() {
                 </span>
               )}
             </button>
+            <button className="text-2xl lg:hidden" onClick={toggleMenu}>
+              {isMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
           <div
-            className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-            id="mobile-menu-2"
+            className={`${
+              isMenuOpen ? "block" : "hidden"
+            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+            id="mobile-menu"
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
