@@ -11,7 +11,7 @@
         rgba(36, 42, 46, 0.2),
         rgba(36, 42, 46, 0.8)
       ),
-      url("../src/assets/homecart.avif");
+      url("assets/homecart.avif");
   }
   .products .product {
     transition: scale 350ms ease, opacity 350ms linear;
